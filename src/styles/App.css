@@ -1,0 +1,319 @@
+.app-shell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+}
+
+.app-card {
+  width: min(960px, 100%);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 32px;
+  padding: 2.5rem;
+  box-shadow: 0 18px 45px rgba(31, 31, 61, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app-header {
+  text-align: center;
+}
+
+.app-header h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(2rem, 2.5vw + 1rem, 3rem);
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  color: rgba(31, 31, 61, 0.75);
+  font-size: 1.1rem;
+}
+
+.level-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.level-pill {
+  border: none;
+  border-radius: 20px;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  background: rgba(94, 96, 206, 0.12);
+  color: #1f1f3d;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.level-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(94, 96, 206, 0.2);
+}
+
+.level-pill--active {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 12px 28px rgba(94, 96, 206, 0.32);
+}
+
+.level-pill__title {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.level-pill__subtitle {
+  display: block;
+  font-size: 1.1rem;
+}
+
+.progress-bar {
+  background: rgba(94, 96, 206, 0.12);
+  border-radius: 999px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+
+.game-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.prompt-card {
+  background: linear-gradient(135deg, rgba(94, 96, 206, 0.12), rgba(255, 209, 102, 0.2));
+  border-radius: 24px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prompt-card__header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+}
+
+.prompt-card__header p {
+  margin: 0.35rem 0 0;
+  color: rgba(31, 31, 61, 0.7);
+}
+
+.prompt-label {
+  font-weight: 700;
+  color: rgba(31, 31, 61, 0.7);
+}
+
+.prompt-display {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.prompt-letter {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-family: 'Baloo 2', cursive;
+  color: var(--primary-color);
+}
+
+.prompt-name,
+.prompt-sound {
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.speaker-button {
+  border: none;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: var(--primary-color);
+  box-shadow: 0 10px 24px rgba(94, 96, 206, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.speaker-button:hover {
+  transform: scale(1.05);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.option-card {
+  border: none;
+  border-radius: 18px;
+  padding: 1.25rem;
+  font-size: 1.4rem;
+  font-family: 'Baloo 2', cursive;
+  background: white;
+  color: #1f1f3d;
+  box-shadow: 0 12px 28px rgba(31, 31, 61, 0.12);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.option-card:hover:not(:disabled) {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(31, 31, 61, 0.18);
+}
+
+.option-card--correct {
+  background: rgba(82, 212, 151, 0.25);
+  box-shadow: 0 18px 36px rgba(82, 212, 151, 0.45);
+}
+
+.option-card--incorrect {
+  background: rgba(255, 107, 107, 0.2);
+  box-shadow: 0 18px 36px rgba(255, 107, 107, 0.35);
+}
+
+.option-card:disabled {
+  cursor: default;
+}
+
+.game-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.score-pill {
+  background: rgba(255, 209, 102, 0.4);
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 700;
+  color: rgba(31, 31, 61, 0.9);
+}
+
+.next-button {
+  border: none;
+  border-radius: 14px;
+  padding: 0.9rem 1.6rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(94, 96, 206, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.next-button:hover {
+  transform: translateY(-2px);
+}
+
+.feedback-bubble {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.feedback-bubble--success {
+  color: #2d6a4f;
+}
+
+.feedback-bubble--error {
+  color: #d62828;
+}
+
+.summary-card {
+  text-align: center;
+  background: linear-gradient(160deg, rgba(255, 175, 204, 0.25), rgba(0, 180, 216, 0.2));
+  border-radius: 28px;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.summary-card h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.summary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.ghost-button {
+  border: 2px solid var(--primary-color);
+  border-radius: 14px;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
+  background: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .app-card {
+    padding: 1.75rem;
+    border-radius: 24px;
+  }
+
+  .prompt-display {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .speaker-button {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 540px) {
+  .app-shell {
+    padding: 1rem;
+  }
+
+  .app-card {
+    padding: 1.25rem;
+  }
+}
